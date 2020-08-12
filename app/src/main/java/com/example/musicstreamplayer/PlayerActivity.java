@@ -1,4 +1,4 @@
- package com.example.musicstreamplayer;
+package com.example.musicstreamplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -90,50 +90,29 @@ public class PlayerActivity extends AppCompatActivity {
     }
 
     private void getIntenMethod() {
-//        position = getIntent().getIntExtra( "position", -1);
-//        listSongs = musicFiles;
-//        if (listSongs != null)
-//        {
-//            playPauseBtn.setImageResource(R.drawable.ic_pause);
-//            uri = Uri.parse(listSongs.get(position).getPath());
-//        }
-//        if (mediaPlayer !=null)
-//        {
-//            mediaPlayer.stop();
-//            mediaPlayer.release();
-//            mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
-//            mediaPlayer.start();
-//
-//        }
-//        else
-//        {
-//            mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
-//            mediaPlayer.start();
-//        }
-//        seekBar.setMax(mediaPlayer.getDuration() / 1000);
-//        metaData(uri);
-        position = getIntent().getIntExtra("Position",0);
+        position = getIntent().getIntExtra( "position", 0);
         listSongs = musicFiles;
         if (listSongs != null)
         {
             playPauseBtn.setImageResource(R.drawable.ic_pause);
             uri = Uri.parse(listSongs.get(position).getPath());
         }
-        if (mediaPlayer != null)
+        if (mediaPlayer !=null)
         {
             mediaPlayer.stop();
             mediaPlayer.release();
-            mediaPlayer = MediaPlayer.create(getApplicationContext(),uri);
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
             mediaPlayer.start();
 
         }
         else
-            {
+        {
             mediaPlayer = MediaPlayer.create(getApplicationContext(), uri);
             mediaPlayer.start();
-            }
+        }
         seekBar.setMax(mediaPlayer.getDuration() / 1000);
         metaData(uri);
+
     }
 
     private void initViews() {
@@ -149,7 +128,6 @@ public class PlayerActivity extends AppCompatActivity {
         repeatBtn = findViewById(R.id.id_repeat);
         playPauseBtn = findViewById(R.id.play_pause);
         seekBar = findViewById(R.id.seekBar);
-        //add more if needed.
     }
 
     private void metaData(Uri uri)
